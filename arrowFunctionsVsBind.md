@@ -24,8 +24,8 @@ arrow functions - 3 million in 1 second
 bound functions - 79 million in 1 second
 function - 688 million in 1 second
 
-### You only need to bind functions that you pass around. e.g. onClick={this.doSomething}. Or fetch.then(this.hanldeDone) — Dan Abramov‏
+**You only need to bind functions that you pass around. e.g. onClick={this.doSomething}. Or fetch.then(this.hanldeDone) — Dan Abramov‏**
 
-## Source and links
+### Source and links
 
 [Good article and source of this](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1)
