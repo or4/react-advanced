@@ -3,9 +3,8 @@ const performance = require('perf_hooks').performance;
 var array = [];
 var object = {};
 
-function testArray() {
+function testArray(len) {
     const start = performance.now();
-    const len = 100000;
     array = new Array(len);
     for (var i = 0; i < len; i++) {
         array[i] = i % 11;
@@ -16,11 +15,8 @@ function testArray() {
     console.log('testArray', round(performance.now() - start));
 }
 
-testArray();
-
-function testUint8Array() {
+function testUint8Array(len) {
     const start = performance.now();
-    const len = 100000;
     array = new Uint8Array(len);
     for (var i = 0; i < len; i++) {
         array[i] = i % 11;
@@ -31,11 +27,8 @@ function testUint8Array() {
     console.log('testUint8Array', round(performance.now() - start));
 }
 
-testUint8Array();
-
-function testObjectFrom0() {
+function testObjectFrom0(len) {
     const start = performance.now();
-    const len = 100000;
     object = {};
     for (var i = 0; i < len; i++) {
         object[i] = i % 11;
@@ -46,11 +39,8 @@ function testObjectFrom0() {
     console.log('testObjectFrom0', round(performance.now() - start));
 }
 
-testObjectFrom0();
-
-function testObjectFrom1() {
+function testObjectFrom1(len) {
     const start = performance.now();
-    const len = 100000;
     object = {};
     for (var i = 1; i <= len; i++) {
         object[i] = i % 11;
@@ -61,8 +51,16 @@ function testObjectFrom1() {
     console.log('testObjectFrom1', round(performance.now() - start));
 }
 
-testObjectFrom1();
+testArray(100000);
+testUint8Array(100000);
+testObjectFrom0(100000);
+testObjectFrom1(100000);
+console.log('');
+testArray(1000);
+testUint8Array(1000);
+testObjectFrom0(1000);
+testObjectFrom1(1000);
 
 function round(value) {
-    return ((value * 100) >> 0) / 100;
+    return ((value * 10000) >> 0) / 10000;
 }

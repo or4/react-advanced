@@ -21,30 +21,35 @@ node src/objectVsArray/strings.js
         testObjectFrom1 43.25
 
 node src/objectVsArray/numbers.js
-    node 8.6.0
-        testArray 4.59
-        testUint8Array 2.82
-        testObjectFrom0 5.14
-        testObjectFrom1 5.75
 
     node 10.11.0
-        testArray 4.05
-        testUint8Array 2.39
-        testObjectFrom0 5.9
-        testObjectFrom1 6.27
+        big array 10 000
+            testArray 3.9829
+            testUint8Array 2.4837
+            testObjectFrom0 5.7762
+            testObjectFrom1 5.8688
 
-    node 12.16.1
-        testArray 5.46
-        testUint8Array 3.69
-        testObjectFrom0 7.44
-        testObjectFrom1 7.24
+        small array 1000
+            testArray 0.0109
+            testUint8Array 0.0123
+            testObjectFrom0 0.0516
+            testObjectFrom1 0.0465
 
     node 13.11.0
-        testArray 5.37
-        testUint8Array 3.84
-        testObjectFrom0 7.69
-        testObjectFrom1 7.74
+        big array 10 000
+            testArray 5.6402
+            testUint8Array 3.4987
+            testObjectFrom0 7.7125
+            testObjectFrom1 7.1442
+
+        small array 1000
+            testArray 0.0811
+            testUint8Array 0.0851
+            testObjectFrom0 0.0931
+            testObjectFrom1 0.082
 ```
+
+**If you see perfomance better in small typed array**
 
 ### Links
 
