@@ -9,7 +9,7 @@ I see in a [report](https://www.youtube.com/watch?v=kl7a1LWXjtI) that objects cr
 ```js
 Results of tests in ms:
 
-node src/objectVsArray/strings.js
+node src/object-vs-array/strings.js
     node 10.11.0
         testArray 46.98
         testObjectFrom0 45.01
@@ -20,7 +20,7 @@ node src/objectVsArray/strings.js
         testObjectFrom0 44.57
         testObjectFrom1 43.25
 
-node src/objectVsArray/numbers.js
+node src/object-vs-array/numbers.js
 
     node 10.11.0
         big array 10 000
