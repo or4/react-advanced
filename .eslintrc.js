@@ -12,6 +12,8 @@ module.exports =  {
 	},
 	rules: {
         "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-empty-interface": 0,
+        "@typescript-eslint/no-unused-expressions": 0,
         "@typescript-eslint/no-explicit-any": 0,
 		"react/prop-types": [2, { ignore: ['children'] }],
 		"@typescript-eslint/no-var-requires": 0,

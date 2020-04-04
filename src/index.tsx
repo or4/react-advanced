@@ -1,95 +1,129 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-interface IState {
-    count: number;
-}
+class ClickCounter extends React.Component<{}, { count: 0; res: string[] }> {
+    private res: string[];
+    private flagScu: boolean;
+    private flagWU: boolean;
+    private flagDU: boolean;
+    private index: number;
 
-class ClickCounter extends React.Component<{}, IState> {
     public constructor(props: {}) {
         super(props);
-        this.state = { count: 0 };
+        this.state = { count: 0, res: [] };
         this.handleClick = this.handleClick.bind(this);
+        console.log('ctor');
+        this.res = [];
+        this.flagScu = true;
+        this.flagWU = true;
+        this.flagDU = true;
+        this.index = 0;
+    }
+
+    public UNSAFE_componentWillMount() {
+        this.testSetState('componentWillMount');
     }
 
     public componentDidMount() {
-        // @ts-ignore
-        console.log('el', document.getElementById('root')._reactRootContainer._internalRoot);
+        // console.log('el', document.getElementById('root')._reactRootContainer._internalRoot);
+
+        this.testSetState('componentDidMount');
+    }
+
+    public shouldComponentUpdate() {
+        if (this.flagScu) {
+            this.flagScu = false;
+
+            this.testSetState('shouldComponentUpdate');
+        }
+
+        return true;
+    }
+
+    public UNSAFE_componentWillUpdate() {
+        if (this.flagWU) {
+            this.flagWU = false;
+
+            this.testSetState('componentWillUpdate');
+        }
+    }
+
+    public componentDidUpdate() {
+        if (this.flagDU) {
+            this.flagDU = false;
+
+            this.testSetState('componentDidUpdate');
+        }
+    }
+
+    private testSetState = (prefix: string) => {
+        this.pushToRes(`${prefix} sync1`, () => {
+            this.pushToRes(`${prefix} cb1`);
+            this.pushToRes(`${prefix} cb2`);
+        });
+
+        this.pushToRes(`${prefix} sync2`, () => {
+            this.pushToRes(`${prefix} cb3`);
+            this.pushToRes(`${prefix} cb4`);
+        });
+
+        Promise.resolve().then(() => {
+            this.pushToRes(`${prefix} promise1`);
+        });
+
+        Promise.resolve().then(() => {
+            this.pushToRes(`${prefix} promise2`);
+        });
+
+        setTimeout(() => {
+            this.pushToRes(`${prefix} setTimeout1`);
+        }, 0);
+        setTimeout(() => {
+            this.pushToRes(`${prefix} setTimeout2`);
+        }, 0);
+
+        setTimeout(() => {
+            this.pushToRes(`${prefix} setTimeout3`);
+        }, 10);
+        setTimeout(() => {
+            this.pushToRes(`${prefix} setTimeout4`);
+        }, 10);
+
+        setImmediate(() => {
+            this.pushToRes(`${prefix} setImmediate1`);
+        });
+        setImmediate(() => {
+            this.pushToRes(`${prefix} setImmediate2`);
+        });
+    };
+
+    private pushToRes(value: string, cb?: () => void) {
+        this.res.push(value);
+
+        this.setState({ res: this.res }, cb);
     }
 
     public handleClick() {
-        this.setState(state => {
+        this.setState((state: any) => {
             return { count: state.count + 1 };
         });
-
-        // @ts-ignore
-        console.log('el', document.getElementById('root')._reactRootContainer._internalRoot);
     }
 
     public render() {
-        // return [
-        //     <button key="1" onClick={this.handleClick}>
-        //         Update counter
-        //     </button>,
-        //     <span key="2">{this.state.count}</span>,
-        // ];
+        console.log('render', this.state.res.slice(this.index));
+        this.index = this.state.res.length;
 
-        // @ts-ignore
-        console.log('compInstance._reactInternalFiber', this._reactInternalFiber);
+        // if (this.flagScu) {
+        //     this.flagScu = false;
+
+        //     this.testSetState(     // }
 
         return [
-            React.createElement(
-                'button',
-                {
-                    key: '1',
-                    id: 'testId',
-                    onClick: this.handleClick,
-                },
-                'Update counter'
-            ),
-            React.createElement(
-                'span',
-                {
-                    key: '2',
-                },
-                'value of span ' + this.state.count
-            ),
-            React.createElement(
-                'span',
-                {
-                    key: '3',
-                },
-                React.createElement('span', {}, 'sub span')
-            ),
-            React.createElement(
-                'span',
-                {
-                    key: '4',
-                },
-                'span key 4 '
-            ),
+            <button key="1" onClick={this.handleClick}>
+                Update counter
+            </button>,
+            <span key="2">{this.state.count}</span>,
         ];
-
-        // return {
-        //     $$typeof: Symbol('react.element'),
-        //     type: 'button',
-        //     key: '1',
-        //     props: {
-        //         children: 'Update counter',
-        //         onClick: this.handleClick,
-        //     },
-        //     ref: null,
-        // };
-
-        // {
-        //     $$typeof: Symbol.for('react.element'),
-        //     type: 'span',
-        //     key: '2',
-        //     props: {
-        //         children: 0,
-        //     },
-        // },
-        // ];
     }
 }
 
