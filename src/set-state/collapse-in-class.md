@@ -26,6 +26,10 @@ To better understand you should see [code](https://github.com/or4/react-advanced
 
 * When we change props, synchronous `setState` or that invoked in `promise` are called early in `componentWillReceiveProps` that invoked in `setImmediate`, `setTimeout` in other lifecycle methods.
 
+## Problems
+
+When you use `setState` it can collapsed, one of the case I show [here](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class-cases.tsx)
+
 ## Output
 
 ```js
