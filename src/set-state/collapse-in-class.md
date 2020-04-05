@@ -1,13 +1,11 @@
 # How can be collapsed `setState` method in class components
 
-I wrote helper that show how `setState` can be collapsed
+I wrote [helper](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx) that show how `setState` can be collapsed
 
 In my tests this code was run once in methods
 `componentWillMount`, `componentDidMount`, `componentWillReceiveProps`, `shouldComponentUpdate`, `componentWillUpdate`, `componentDidUpdate`, `render`
 
-Code has different cases that you can call `setState`
-
-You can see full code [this](https://)
+You can see full code [this](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx)
 
 Each of array is a value that received in __`render`__ function from special methods that I wrote above
 Each of array is a invoke `render` function that received in __`render`__ function from special methods that I wrote above
@@ -18,7 +16,7 @@ This test run on the client side, it may be differ if run on the server side
 
 You can see a lot interesting things from the output, I write some of this.
 
-To better understand you should see [code](https://) and the output bellow.
+To better understand you should see [code](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx) and the output bellow.
 
 * Synchronous `setState` call and the call that in `setState` callback is usually collapsed. If `setState` is called in `promise`, `setTimeout` or `setImmediate` they won't be collapsed and will be processed individually. For each `setState` that is called in `promise`, `setTimeout` or `setImmediate` the `render` method must be called.
 
