@@ -1,6 +1,6 @@
-# About collapse setState in class components
+# How can be collapsed `setState` method in class components
 
-I wrote helper that show how setState can collapse
+I wrote helper that show how `setState` can be collapsed
 
 In my tests this code was run once in methods
 `componentWillMount`, `componentDidMount`, `componentWillReceiveProps`, `shouldComponentUpdate`, `componentWillUpdate`, `componentDidUpdate`, `render`
@@ -14,7 +14,21 @@ Each of array is a invoke `render` function that received in __`render`__ functi
 
 This test run on the client side, it may be differ if run on the server side
 
-## Result
+## Conclusions
+
+You can see a lot interesting things from the output, I write some of this.
+
+To better understand you should see [code](https://) and the output bellow.
+
+* Synchronous `setState` call and the call that in `setState` callback is usually collapsed. If `setState` is called in `promise`, `setTimeout` or `setImmediate` they won't be collapsed and will be processed individually. For each `setState` that is called in `promise`, `setTimeout` or `setImmediate` the `render` method must be called.
+
+* About prioritet: synchronous has primary prioritet, `setState` in callbacks has second prioritet. The next prioritet according to browser `event loop`, in the following order: `promise`, `setImmediate`, `setTimeout`.
+
+* Probably synchronous `setState` or in callbacks, in promises invoke consistently. `setState` that invokes in `setTimeout` or `setImmediate` may be called inconsistently.
+
+* When we change props, synchronous `setState` or that invoked in `promise` are called early that invoked in `setImmediate`, `setTimeout` in other lifecycle methods.
+
+## Output
 
 ```js
 [
@@ -167,20 +181,3 @@ start UNSAFE_componentWillReceiveProps setTimeout
 ["componentWillReceiveProps_setTimeout setTimeout3"]
 ["componentWillReceiveProps_setTimeout setTimeout4"]
 ```
-
-## Notes
-
-You can and should use `this.setState()` in only these React lifecycle methods: `componentDidMount`, `componentDidUpdate` and `componentWillReceiveProps`.
-You can also set it in the `componentWillMount` method, but it’s recommend to use the constructor instead. [Link](https://levelup.gitconnected.com/react-cheatsheet-this-setstate-8bc12c5f40f5)
-
-You can see a lot interesting things from above output, I write some of this:
-
-* Sync has primary prioritet
-* Callback from `setState` has second prioritet and as soon as posible collapsed in one render
-* As I understand next prioritet is according browser `event loop`, as `promise`, `setImmediate`, `setTimeout`
-* Probably `setState` that sync or in callbacks, in promises invoke consistently
-* `setState` that invokes in `setTimeout`, `setImmediate` may be called inconsistently.
-* When we change props, first of all will be applied in `promise` due to `event loop`.
-* When we change props, `sync` and `setState` that was invoked in `promise` pushes back `setState` that invoked in `setImmediate`, `setTimeout`
-
-To better understand you should see [code](https://)
