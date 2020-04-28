@@ -2,7 +2,7 @@
 
 ## Почему setState нужно класть в методы
 
-** getSnapshotBeforeUpdate
+* getSnapshotBeforeUpdate
 * componentDidMount
 * componentDidUpdate
 * componentWillUnmount
@@ -19,5 +19,3 @@
 Because these methods execute in the synchronous commit phase, they may contain side effects and touch the DOM.
 
 ## UNSAFE_ это действительно UNSAFE методы
-
-
