@@ -2,6 +2,8 @@
 
 ## Event loop
 
+[Node.js event loop](https://github.com/or4/event-loop/blob/master/src/node/articles/node.js-event-loop.md)
+
 [Browser event loop explainer](https://github.com/atotic/event-loop)
 
 [Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
