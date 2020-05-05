@@ -1,10 +1,54 @@
-# About
+# Prepare for an front-end interview
 
-This repository is created to collect data for experienced react web developers
+## Event loop
 
-## Content
+[Browser event loop explainer](https://github.com/atotic/event-loop)
 
-[React Fiber](https://github.com/or4/react-advanced/blob/master/articles/fiber.md)
+[Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+
+## React
+
+[Fiber-in-depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
+
+[Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
+
+[Shadow dom](https://github.com/or4/react-advanced/tree/master/src/web-components)
+
+[React hooks](https://github.com/or4/react-hooks-examples/tree/master/src/hooks)
+
+## Redux
+
+[Simple redux example](https://github.com/or4/simple-redux/tree/master/src/redux)
+
+## Reselect
+
+[Docs](https://github.com/devSchacht/translations/blob/master/articles/reselect-selector-library-for-redux/readme.md)
+
+## Rendering / Layout
+
+## Web metrics (TTI, FP / FCP, FMP)
+
+[Производительность имеет значение](https://medium.com/@uleen/производительность-имеет-значение-c488c8d8ec30)
+
+## CSS
+
+[Grid](https://github.com/or4/css/tree/master/src/grid)
+
+[Flex](https://github.com/or4/css/tree/master/src/flex)
+
+### Animations
+
+## Other questions
+
+* garbage collector
+* networking
+
+## Train js
+
+[Promise.all](https://github.com/or4/practice-js/blob/master/src/type-d/D3.PromiseAll.test.ts)
+
+
+## Not so important
 
 [Arrow Functions vs bind](https://github.com/or4/react-advanced/blob/master/articles/arrow-functions-vs-bind.md)
 
