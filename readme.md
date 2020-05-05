@@ -10,7 +10,7 @@
 
 ## React
 
-[Fiber-in-depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
+[Fiber In Depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
 
 [Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
 
