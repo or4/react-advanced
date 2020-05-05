@@ -10,6 +10,8 @@ React processes updates very quickly and to achieve that level of performance it
 
 [The how and why on React’s usage of linked list in Fiber to walk the component’s tree](https://indepth.dev/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree/)
 
+[React Fiber Architecture](https://github.com/acdlite/react-fiber-architecture?source=post_page---------------------------)
+
 ## JSX
 
 [Orig link](https://indepth.dev/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/)
