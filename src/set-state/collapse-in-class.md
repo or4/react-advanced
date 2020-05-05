@@ -6,11 +6,11 @@ You can see a lot interesting things from the output, I write some of this.
 
 To better understand you should see [code](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx) and the output bellow.
 
-* Synchronous `setState` call and the call that in `setState` callback is usually collapsed. If `setState` is called in `promise`, `setTimeout` or `setImmediate` they won't be collapsed and will be processed individually. For each `setState` that is called in `promise`, `setTimeout` or `setImmediate` the `render` method must be called each time.
+* The synchronous `setState` calls and the calls that in `setState` callback are usually collapsed accordingly. If `setState` are called in `promise`, `setTimeout` or `setImmediate` they won't be collapsed and will be processed individually. For each `setState` that is called in `promise`, `setTimeout` or `setImmediate` the `render` method must be called each time.
 
 * About prioritet: synchronous has primary prioritet, `setState` in callbacks has second prioritet. The next prioritet according to browser `event loop`, in the following order: `promise`, `setImmediate`, `setTimeout`.
 
-* Synchronous `setState` or that is called in `setState` callbacks and promises is invoked consistently. `setState` that is invoked in `setTimeout` or `setImmediate` may be called inconsistently.
+* Synchronous `setState` calls or that are called in `setState` callbacks and promises are invoked consistently. `setState` that are invoked in `setTimeout` or `setImmediate` may be called inconsistently.
 
 ## About
 
