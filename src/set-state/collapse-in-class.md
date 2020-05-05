@@ -1,18 +1,6 @@
 # How can be collapsed `setState` method in class components
 
-I wrote [helper](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx) that show how `setState` can be collapsed
-
-In my tests this code was run once in methods
-`componentWillMount`, `componentDidMount`, `componentWillReceiveProps`, `shouldComponentUpdate`, `componentWillUpdate`, `componentDidUpdate`, `render`
-
-You can see full code [this](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx)
-
-Each of array is a value that received in __`render`__ function from special methods that I wrote above
-Each of array is a invoke `render` function that received in __`render`__ function from special methods that I wrote above
-
-This test run on the client side, it may be differ if run on the server side
-
-## Conclusions
+## The Main Conclusions
 
 You can see a lot interesting things from the output, I write some of this.
 
@@ -24,7 +12,19 @@ To better understand you should see [code](https://github.com/or4/react-advanced
 
 * Synchronous `setState` or that is called in `setState` callbacks and promises is invoked consistently. `setState` that is invoked in `setTimeout` or `setImmediate` may be called inconsistently.
 
-* When we change props, synchronous `setState` or that invoked in `promise` are called early in `componentWillReceiveProps` that invoked in `setImmediate`, `setTimeout` in other lifecycle methods.
+## About
+
+I wrote [helper](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx) that show how `setState` can be collapsed
+
+In my tests this code was run once in methods
+`componentWillMount`, `componentDidMount`, `componentWillReceiveProps`, `shouldComponentUpdate`, `componentWillUpdate`, `componentDidUpdate`, `render`
+
+You can see full code [this](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.tsx)
+
+Each of array is a value that received in __`render`__ function from special methods that I wrote above
+Each of array is a invoke `render` function that received in __`render`__ function from special methods that I wrote above
+
+This test run on the client side, it may be differ if run on the server side
 
 ## Problems
 

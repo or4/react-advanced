@@ -47,8 +47,11 @@
 
 [Promise.all](https://github.com/or4/practice-js/blob/master/src/type-d/D3.PromiseAll.test.ts)
 
-
 ## Not so important
+
+[When setState are collapsed](https://github.com/or4/react-advanced/blob/master/src/set-state/collapse-in-class.md)
+
+[Where I should use setState and why](https://github.com/or4/react-advanced/blob/master/src/set-state/where-I-can-use.md)
 
 [Arrow Functions vs bind](https://github.com/or4/react-advanced/blob/master/articles/arrow-functions-vs-bind.md)
 
