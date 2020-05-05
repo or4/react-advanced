@@ -2,19 +2,27 @@
 
 ## Event loop
 
+[Browser event loop explainer](https://github.com/atotic/event-loop)
+
+[Tasks, microtasks, queues and schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+
 ## React
 
-### [Fiber-in-depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
+[Fiber-in-depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
 
-### [Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
+[Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
 
-### Shadow dom
+Shadow dom
 
-### [React hooks](https://github.com/or4/react-hooks-examples/tree/master/src/hooks)
+[React hooks](https://github.com/or4/react-hooks-examples/tree/master/src/hooks)
 
-### [Redux](https://github.com/or4/simple-redux/tree/master/src/redux)
+## Redux
 
-### [Reselect](https://github.com/devSchacht/translations/blob/master/articles/reselect-selector-library-for-redux/readme.md)
+[Simple redux example](https://github.com/or4/simple-redux/tree/master/src/redux)
+
+## Reselect
+
+[Docs](https://github.com/devSchacht/translations/blob/master/articles/reselect-selector-library-for-redux/readme.md)
 
 ## Rendering / Layout
 
