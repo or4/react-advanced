@@ -154,5 +154,7 @@ Methods of react life cycles is effects.
 ## Links
 
 https://indepth.dev/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/
+
 https://indepth.dev/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree/
+
 https://indepth.dev/everything-you-need-to-know-about-change-detection-in-angular/
