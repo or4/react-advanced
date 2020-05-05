@@ -28,9 +28,9 @@
 
 ## CSS
 
-### [Grid](https://github.com/or4/css/tree/master/src/grid)
+[Grid](https://github.com/or4/css/tree/master/src/grid)
 
-### [Flex](https://github.com/or4/css/tree/master/src/flex)
+[Flex](https://github.com/or4/css/tree/master/src/flex)
 
 ### Animations
 
