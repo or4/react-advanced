@@ -12,7 +12,7 @@
 
 [Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
 
-Shadow dom
+[Shadow dom](https://github.com/or4/react-advanced/tree/master/src/web-components)
 
 [React hooks](https://github.com/or4/react-hooks-examples/tree/master/src/hooks)
 
