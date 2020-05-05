@@ -10,19 +10,19 @@
 
 ### Shadow dom
 
-### React hooks
+### [React hooks](https://github.com/or4/react-hooks-examples/tree/master/src/hooks)
 
-### Redux
+### [Redux](https://github.com/or4/simple-redux/tree/master/src/redux)
 
-### Reselect
+### [Reselect](https://github.com/devSchacht/translations/blob/master/articles/reselect-selector-library-for-redux/readme.md)
 
 ## Rendering / Layout
 
 ## CSS
 
-### Grid
+### [Grid](https://github.com/or4/css/tree/master/src/grid)
 
-### Flex
+### [Flex](https://github.com/or4/css/tree/master/src/flex)
 
 ### Animations
 
