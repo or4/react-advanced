@@ -102,7 +102,7 @@ React elements is immutable, but fiber nodes is mutable.
 
 ## Structure of fiber node tree
 
-![Structure of fiber node tree](https://img-1.png)
+![Structure of fiber node tree](./structure-of-fiber-node-tree.png)
 
 Host component is a DOM components. Host equals DOM.
 There are exists a few fiber node tree. These are `current`, `workInProgress` and `finishedWork`.
