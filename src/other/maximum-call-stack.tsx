@@ -6,8 +6,8 @@ let i = 1;
 // @ts-ignore
 function Test() {
     i % 100 === 0 && console.log('i', i);
-    // с 3000 начиает писать Uncaught RangeError: Maximum call stack size exceeded
-    // после 7000 рендер отваливается
+    // since 3000 get error Uncaught RangeError: Maximum call stack size exceeded
+    // after 7000 render freezes
     // if (i === 7000) {
     //     return null;
     // }

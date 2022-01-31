@@ -5,7 +5,7 @@ var object = {};
 
 function testArray() {
     const start = performance.now();
-    const len = 100000;
+    const len = 1000000;
     array = new Array(len);
     for (var i = 0; i < len; i++) {
         array[i] = `some test ${i} value`;
@@ -18,9 +18,9 @@ function testArray() {
 
 testArray();
 
-function testObjectFrom0() {
+function testObject() {
     const start = performance.now();
-    const len = 100000;
+    const len = 1000000;
     object = {};
     for (var i = 0; i < len; i++) {
         object[i] = `some test ${i} value`;
@@ -28,25 +28,10 @@ function testObjectFrom0() {
     for (var i = 0; i < len; i++) {
         object[i] = object[i] + `some test ${i} value`;
     }
-    console.log('testObjectFrom0', round(performance.now() - start));
+    console.log('testObject', round(performance.now() - start));
 }
 
-testObjectFrom0();
-
-function testObjectFrom1() {
-    const start = performance.now();
-    const len = 100000;
-    object = {};
-    for (var i = 1; i <= len; i++) {
-        object[i] = `some test ${i} value`;
-    }
-    for (var i = 0; i < len; i++) {
-        object[i] = object[i] + `some test ${i} value`;
-    }
-    console.log('testObjectFrom1', round(performance.now() - start));
-}
-
-testObjectFrom1();
+testObject();
 
 function round(value) {
     return ((value * 100) >> 0) / 100;
