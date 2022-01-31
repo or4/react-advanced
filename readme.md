@@ -14,6 +14,6 @@ This repo is devoted high lvl react features
 
 [Where I should use setState and why](https://github.com/or4/react-advanced/blob/master/src/set-state/where-I-can-use.md)
 
-[Arrow Functions vs bind](https://github.com/or4/react-advanced/blob/master/articles/arrow-functions-vs-bind.md)
+[Arrow Functions vs bind](https://github.com/or4/react-advanced/blob/master/src/other/arrow-functions-vs-bind.md)
 
-[Object vs array](https://github.com/or4/react-advanced/blob/master/articles/object-vs-array.md)
+[Object vs array](https://github.com/or4/react-advanced/blob/master/src/other/object-vs-array.md)
