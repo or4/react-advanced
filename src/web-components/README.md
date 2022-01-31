@@ -1,16 +1,12 @@
 # web-components
 
-## Пользовательские элементы (Custom Elements)
+## Custom Elements
 
 ### Source
 https://learn.javascript.ru/web-components
 
-### Существует два вида пользовательских элементов:
-
-* Автономные пользовательские элементы – «полностью новые» элементы, расширяющие абстрактный класс HTMLElement.
-«Автономные» – новые теги, расширяющие HTMLElement.
-
-Схема определения:
+### There are two kinds of custom elements:
+* Autonomous custom elements - Fully new elements that extends class HTMLElement
 
 ```js
 class MyElement extends HTMLElement {
@@ -25,10 +21,9 @@ customElements.define('my-element', MyElement);
 /* <my-element> */
 ```
 
-* Пользовательские встроенные элементы – элементы, расширяющие встроенные, например кнопку HTMLButtonElement и т.п.
-«Модифицированные встроенные элементы» – расширения существующих элементов.
+* Customized built-in elements that extends for example HTMLButtonElement.
 
-Требуют ещё один аргумент в .define и атрибут is="..." в HTML:
+It requires another argument in .define и attribute is="..." in HTML:
 
 ```js
 class MyButton extends HTMLButtonElement { /*...*/ }
@@ -36,46 +31,45 @@ customElements.define('my-button', MyElement, {extends: 'button'});
 /* <button is="my-button"> */
 ```
 
-### Cоздания класса со специальными методами
+### Creating class with special methods
 
 ```js
 class MyElement extends HTMLElement {
   constructor() {
     super();
-    // элемент создан
+    // element created
   }
 
   connectedCallback() {
-    // браузер вызывает этот метод при добавлении элемента в документ
-    // (может вызываться много раз, если элемент многократно добавляется/удаляется)
+    // browser call this method when addition an element in the document
+    // (can be called many times, if the element are many times added and deleted)
   }
 
   disconnectedCallback() {
-    // браузер вызывает этот метод при удалении элемента из документа
-    // (может вызываться много раз, если элемент многократно добавляется/удаляется)
+    // browser call this method when deletion an element in the document
+    // (can be called many times, if the element are many times added and deleted)
   }
 
   static get observedAttributes() {
-    return [/* массив имён атрибутов для отслеживания их изменений */];
+    return [/* attributes names array for monitor changes */];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    // вызывается при изменении одного из перечисленных выше атрибутов
+    // called when one of the above attributes changes
   }
 
   adoptedCallback() {
-    // вызывается, когда элемент перемещается в новый документ
-    // (происходит в document.adoptNode, используется очень редко)
+    // called when a element is moved to a new document
   }
 
-  // у элемента могут быть ещё другие методы и свойства
+  // this element can have other methods and properties
 }
 
-// сообщим браузеру, что <my-element> обслуживается нашим новым классом
+// need notify browser that <my-element> is provided our new class
 customElements.define("my-element", MyElement);
 ```
 
-### Пример: «time-formatted»
+### Example: «time-formatted»
 
 ```html
     <script>
@@ -124,7 +118,7 @@ customElements.define("my-element", MyElement);
 
 https://learn.javascript.ru/shadow-dom
 
-### Встроенный теневой DOM
+### Build-in shadow DOM
 
 ```html
 <input type="range">
@@ -132,11 +126,11 @@ https://learn.javascript.ru/shadow-dom
 
 ![dev tools](https://)
 
-Можно менять стили через `pseudo`
+Styles can be changed by `pseudo`
 
 ```html
 <style>
-/* делаем цвет шкалы ползунка красным */
+/* Change the color of the scale pin to red */
 input::-webkit-slider-runnable-track {
   background: red;
 }
@@ -145,12 +139,11 @@ input::-webkit-slider-runnable-track {
 <input type="range">
 ```
 
-### Теневое дерево
+### Shadow tree
 
-Каждый DOM-элемент может иметь 2 типа поддеревьев DOM:
-
-1. Light tree – обычное, «светлое», DOM-поддерево, состоящее из HTML-потомков. Все поддеревья, о которых мы говорили в предыдущих главах, были «light».
-2. Shadow tree – скрытое, «теневое», DOM-поддерево, не отражённое в HTML, скрытое от посторонних глаз.
+Each DOM-element can have 2 types subtrees DOM:
+1. Light tree - usually, "light", DOM-subtree, consist of HTML-children.
+2. Shadow tree – hidden, "shadow", DOM-subtree, that not displayed in HTML
 
 ```html
 <script>
@@ -167,15 +160,12 @@ customElements.define('show-hello', class extends HTMLElement {
 <show-hello name="John"></show-hello>
 ```
 
-### Свойство mode задаёт уровень инкапсуляции. У него может быть только два значения:
+### Property mode define encapsulation level. It can be only open or closed
 
-"open" – корень теневого дерева («shadow root») доступен как elem.shadowRoot.
+"open" – shadow root is accessed as elem.shadowRoot.
+"closed" – elem.shadowRoot always return null.
 
-Любой код может получить теневое дерево elem.
-
-"closed" – elem.shadowRoot всегда возвращает null.
-
-## Элемент "template"
+## Element "template"
 
 ```html
 <template id="tmpl">
@@ -188,11 +178,11 @@ customElements.define('show-hello', class extends HTMLElement {
 <script>
   let elem = document.createElement('div');
 
-  // Клонируем содержимое шаблона для того, чтобы переиспользовать его несколько раз
+  // Clone template content to reuse a few times
   elem.append(tmpl.content.cloneNode(true));
 
   document.body.append(elem);
-  // Сейчас скрипт из <template> выполнится
+  // Now the script of <template> start
 </script>
 ```
 
@@ -202,7 +192,7 @@ customElements.define('show-hello', class extends HTMLElement {
   <p id="message"></p>
 </template>
 
-<div id="elem">Нажми на меня</div>
+<div id="elem">Click me</div>
 
 <script>
   elem.onclick = function() {
@@ -210,12 +200,12 @@ customElements.define('show-hello', class extends HTMLElement {
 
     elem.shadowRoot.append(tmpl.content.cloneNode(true)); // (*)
 
-    elem.shadowRoot.getElementById('message').innerHTML = "Привет из теней!";
+    elem.shadowRoot.getElementById('message').innerHTML = "Hello from shadow!";
   };
 </script>
 ```
 
-## Слоты теневого DOM, композиция
+## Slots of shadow DOM, composition
 
 ```html
 <script>
@@ -226,7 +216,7 @@ customElements.define('user-card', class extends HTMLElement {
       <div>Имя:
         <slot name="username"></slot>
       </div>
-      <div>Дата рождения:
+      <div>Date birthday:
         <slot name="birthday"></slot>
       </div>
     `;
@@ -235,34 +225,34 @@ customElements.define('user-card', class extends HTMLElement {
 </script>
 
 <user-card>
-  <span slot="username">Иван Иванов</span>
-  <span slot="birthday">01.01.2001</span>
+  <span slot="username">Ivan Ivanov</span>
+  <span slot="birthday">2001/01/01</span>
 </user-card>
 ```
 
 ```html
 <user-card>
   #shadow-root
-    <div>Имя:
+    <div>Name:
       <slot name="username"></slot>
     </div>
-    <div>Дата рождения:
+    <div>Date birthday:
       <slot name="birthday"></slot>
     </div>
-  <span slot="username">Иван Иванов</span>
-  <span slot="birthday">01.01.2001</span>
+  <span slot="username">Ivan Ivanov</span>
+  <span slot="birthday">2001/01/01</span>
 </user-card>
 ```
 
-### Содержимое слота «по умолчанию»
+### Slot content by default
 
 ```html
-<div>Имя:
-  <slot name="username">Аноним</slot>
+<div>Name:
+  <slot name="username">Anonymous</slot>
 </div>
 ```
 
-### Слот по умолчанию (первый без имени)
+### Slot by default (first time without name)
 
 ```html
 <script>
@@ -273,11 +263,11 @@ customElements.define('user-card', class extends HTMLElement {
     <div>Имя:
       <slot name="username"></slot>
     </div>
-    <div>Дата рождения:
+    <div>Date birthday:
       <slot name="birthday"></slot>
     </div>
     <fieldset>
-      <legend>Другая информация</legend>
+      <legend>Other information</legend>
       <slot></slot>
     </fieldset>
     `;
@@ -286,21 +276,21 @@ customElements.define('user-card', class extends HTMLElement {
 </script>
 
 <user-card>
-  <div>Я люблю плавать.</div>
-  <span slot="username">Иван Иванов</span>
-  <span slot="birthday">01.01.2001</span>
-  <div>...И играть в волейбол!</div>
+  <div>I love swim.</div>
+  <span slot="username">Ivan</span>
+  <span slot="birthday">2001/01/01</span>
+  <div>...And play in football!</div>
 </user-card>
 ```
 
-### Пример меню
+### Example menu
 
 ```html
 <custom-menu>
-  <span slot="title">Сладости</span>
-  <li slot="item">Леденцы</li>
-  <li slot="item">Фруктовые тосты</li>
-  <li slot="item">Кексы</li>
+  <span slot="title">Sweets</span>
+  <li slot="item">Candy</li>
+  <li slot="item">Fruits</li>
+  <li slot="item">Cake</li>
 </custom-menu>
 
 
@@ -338,26 +328,26 @@ customElements.define('custom-menu', class extends HTMLElement {
     <style> /* стили меню */ </style>
     <div class="menu">
       <slot name="title">
-        <span slot="title">Сладости</span>
+        <span slot="title">Sweets</span>
       </slot>
       <ul>
         <slot name="item">
-          <li slot="item">Леденцы</li>
-          <li slot="item">Фруктовые тосты</li>
-          <li slot="item">Кексы</li>
+          <li slot="item">Candy</li>
+          <li slot="item">Fruits</li>
+          <li slot="item">Cake</li>
         </slot>
       </ul>
     </div>
 </custom-menu>
 ```
 
-### Обновление слотов
+### Update slots
 
-Например, здесь пункт меню вставляется динамически через 1 секунду, и заголовок меняется через 2 секунды:
+Example, here menu item insert dynamically in 1 second, and title is changed in 2 seconds
 
 ```html
 <custom-menu id="menu">
-  <span slot="title">Сладости</span>
+  <span slot="title">Sweets</span>
 </custom-menu>
 
 <script>
@@ -369,7 +359,7 @@ customElements.define('custom-menu', class extends HTMLElement {
       <ul><slot name="item"></slot></ul>
     </div>`;
 
-    // shadowRoot не может иметь обработчиков событий, поэтому используется первый потомок
+    // shadowRoot cannot have event handlers, therefore is used first child
     this.shadowRoot.firstElementChild.addEventListener('slotchange',
       e => alert("slotchange: " + e.target.name)
     );
@@ -377,30 +367,26 @@ customElements.define('custom-menu', class extends HTMLElement {
 });
 
 setTimeout(() => {
-  menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Леденцы</li>')
+  menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Candy</li>')
 }, 1000);
 
 setTimeout(() => {
-  menu.querySelector('[slot="title"]').innerHTML = "Новое меню";
+  menu.querySelector('[slot="title"]').innerHTML = "New menu";
 }, 2000);
 </script>
 ```
 
-Обратите внимание, что событие slotchange не запускается через 2 секунды, когда меняется контент slot="title". Это происходит потому, что сам слот не меняется. Мы изменяем содержимое элемента, который находится в слоте, а это совсем другое.
+### Slots API
 
-Если мы хотим отслеживать внутренние изменения обычного DOM-дерева из JavaScript, можно также использовать более обобщённый механизм: MutationObserver.
-
-### API слотов
-
-* `node.assignedSlot` – возвращает элемент `<slot>`, в котором находится `node`.
-* `slot.assignedNodes({flatten: true/false})` – DOM-узлы, которые находятся в слоте. Опция flatten имеет значение по умолчанию false. Если явно изменить значение на true, она просматривает развёрнутый DOM глубже и возвращает вложенные слоты, если есть вложенные компоненты, и резервный контент, если в слоте нет узлов.
-* `slot.assignedElements({flatten: true/false})` – DOM-элементы, которые находятся в слоте (то же самое, что выше, но только узлы-элементы).
+* `node.assignedSlot` – return element `<slot>`, that has `node`.
+* `slot.assignedNodes({flatten: true/false})` – DOM-nodes, that exist in slot. Option flatten has value by default - false
+* `slot.assignedElements({flatten: true/false})` – DOM-elements, that exist in slot
 
 ```html
 <custom-menu id="menu">
-  <span slot="title">Сладости</span>
-  <li slot="item">Леденцы</li>
-  <li slot="item">Фруктовые тосты</li>
+  <span slot="title">Sweets</span>
+  <li slot="item">Candy</li>
+  <li slot="item">Fruits</li>
 </custom-menu>
 
 <script>
@@ -414,7 +400,7 @@ customElements.define('custom-menu', class extends HTMLElement {
       <ul><slot name="item"></slot></ul>
     </div>`;
 
-    // слотовый элемент добавляется/удаляется/заменяется
+    // slot element add/remove/replace
     this.shadowRoot.firstElementChild.addEventListener('slotchange', e => {
       let slot = e.target;
       if (slot.name == 'item') {
@@ -425,19 +411,18 @@ customElements.define('custom-menu', class extends HTMLElement {
   }
 });
 
-// пункты меню обновятся через 1 секунду
+// menu item updates every 1 second
 setTimeout(() => {
-  menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Кексы</li>')
+  menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Cake</li>')
 }, 1000);
 </script>
 ```
 
-## Настройка стилей теневого DOM
+## Settings styles shadow DOM
 
 ```html
 <template id="tmpl">
   <style>
-    /* стиль будет применён изнутри к элементу <custom-dialog> */
     :host {
       position: fixed;
       left: 50%;
@@ -464,7 +449,7 @@ customElements.define('custom-dialog', class extends HTMLElement {
 </custom-dialog>
 ```
 
-## Теневой DOM и события
+## Shadow DOM and events
 
 ```html
 <user-card></user-card>
@@ -474,24 +459,14 @@ customElements.define('user-card', class extends HTMLElement {
   connectedCallback() {
     this.attachShadow({mode: 'open'});
     this.shadowRoot.innerHTML = `<p>
-      <button>Нажми меня</button>
+      <button>Click me</button>
     </p>`;
     this.shadowRoot.firstElementChild.onclick =
-      e => alert("Внутренний целевой элемент: " + e.target.tagName);
+      e => alert("Inner element: " + e.target.tagName);
   }
 });
 
 document.onclick =
-  e => alert("Внешний целевой элемент: " + e.target.tagName);
+  e => alert("Outer element: " + e.target.tagName);
 </script>
 ```
-
-Если нажать на кнопку, то выведется следующее:
-
-1. Внутренний целевой элемент: BUTTON – внутренний обработчик событий получает правильный целевой элемент – элемент, находящийся внутри теневого DOM.
-2. Внешний целевой элемент: USER-CARD – обработчик событий на уровне документа получает элемент-хозяин в качестве целевого.
-
-### Всплытие и метод event.composedPath()
-
-При клике по `<span slot="username">` вызов метода event.composedPath() вернёт массив: [span, slot, div, shadow-root, user-card, body, html, document, window]. Что в точности отражает цепочку родителей от целевого элемента в развёрнутой DOM-структуре после композиции.
-
