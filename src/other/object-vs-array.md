@@ -3,7 +3,7 @@
 Arrays: constant time lookup, linear insertion and removal (e.g. unshift() and shift()).
 Objects: constant time lookup, constant insertion and retrieve
 **For a large number of elements it is better to use arrays**
-∏
+
 ### Test results for node 14.17.1
 
 ```bash
