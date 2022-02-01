@@ -4,6 +4,10 @@ In this repo I tried collect high level react features
 
 ## Useful links
 
+### React Conf
+
+[React 18 Conf 2021](https://www.youtube.com/playlist?list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa)
+
 ### Hooks
 
 [Under-the-hood of React Hooks](https://indepth.dev/posts/1220/under-the-hood-of-react-hooks)
