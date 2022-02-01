@@ -1,6 +1,6 @@
 # About
 
-In this repo I tried collect high level react features
+In this repo I tried to collect high level react features
 
 ## Useful links
 
