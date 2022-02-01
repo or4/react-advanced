@@ -8,6 +8,8 @@ In this repo I tried to collect high level react features
 
 [React 18 Conf 2021](https://www.youtube.com/playlist?list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa)
 
+[What's New in React 18](https://github.com/or4/react-advanced/blob/master/src/react18.md)
+
 ### Hooks
 
 [Under-the-hood of React Hooks](https://indepth.dev/posts/1220/under-the-hood-of-react-hooks)
@@ -30,8 +32,6 @@ In this repo I tried to collect high level react features
 [SMOOSHCAST: React Fiber Deep Dive with Dan Abramov](https://www.youtube.com/watch?v=aS41Y_eyNrU)
 
 ## Here I tried rewrite information from articles or reports
-
-[What's New in React 18](https://github.com/or4/react-advanced/blob/master/src/react18.md)
 
 [Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
 
