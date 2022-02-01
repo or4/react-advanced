@@ -9,10 +9,13 @@ In this repo I tried collect high level react features
 [Under-the-hood of React Hooks](https://indepth.dev/posts/1220/under-the-hood-of-react-hooks)
 
 [How React hooks work - in depth](https://eliav2.github.io/how-react-hooks-work/)
+[Detecting unexpected side effects](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects)
+[The Diffing Algorithm](https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm)
 
 [Under the hood of React's hooks system](https://www.the-guild.dev/blog/react-hooks-system)
 
 [Under-the-hood of React Hooks](https://itnext.io/under-the-hood-of-react-hooks-805dc68581c3)
+
 
 ### Fiber
 
