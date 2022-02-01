@@ -10,6 +10,8 @@ In this repo I tried to collect high level react features
 
 [What's New in React 18](https://github.com/or4/react-advanced/blob/master/src/react18.md)
 
+[What's New in React 17](https://github.com/or4/react-advanced/blob/master/src/react17.md)
+
 ### Hooks
 
 [Under-the-hood of React Hooks](https://indepth.dev/posts/1220/under-the-hood-of-react-hooks)
@@ -36,7 +38,6 @@ In this repo I tried to collect high level react features
 [Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
 
 [Fiber In Depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
-
 
 
 ## Not so important
