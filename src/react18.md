@@ -4,7 +4,7 @@ I saw the Conf that was in December 2021 and make some notes.
 
 ## Automatic batching
 
-In React 16 batching works for useEffect, but not working for promises
+In React 16 batching works for `useEffect`, but not working for promises
 
 ```js
 useEffect(() => {
@@ -36,18 +36,18 @@ If you no need to batching you can call `flushSync`
 
 ## Suspense
 
-Suspense - this is new way to manage loading flag and data
+[`Suspense`](https://reactjs.org/docs/concurrent-mode-reference.html#suspensecomponent) - this is new way to manage loading flag and data \
 
 ```js
 // this is previous way
-const {loading, user} = useUserApi();
+const { loading, user } = useUserApi();
 if (loading) {
     return <Spinner />
 }
 return <User {...user} />
 ```
 
-In previous way there are a few problems for example when should show spinner in a few components, for example to show avatar and to show user details.
+There are a couple of problems with the previous method. There is a problem with the design, now we have two different entities and we manage them in this component. Another problem is when we use user data in several different components then we have to manage the spinner component in each component.
 
 ```js
 // this is new way
@@ -56,29 +56,31 @@ return (
         <User />
     </Suspense>
 )
+
+const { user } = useUserApi();
+return <User {...user} />
+
 ```
 
-New way can be reached by special libraries like Apollo, React-Query. Sometimes it convenient for complex cases like bellow.
-Because `pageId` can be changed before data is received.
+The new way is more declarative, and you don't have to think about the spinner. The spinner can be controlled in a separate component.
 
-```js
-const useGetData = (pageId) => {
-    const {loading, data} = usePageApi(pageId);
-    if (loading) {
-        return <Spinner />
-    }
-    return <Page {...data} />
-}
-```
+In the nearest future the new way should be supported in the special libraries like Apollo, React-Query.
+The React team is currently working on simplifying the `Suspense` contract.
 
-Now React team are working on simplify contract with `Suspense`
-
-In React 16 Suspense works only with lazy loading javascript bundles
+In React 16 `Suspense` only works with lazy loading of javascript packages.
 
 ## Suspense on the server
 
-The main idea - if there is a delay between the user's request and getting the prepared data you can use Suspense on the server
+You can use `Suspense` on the server, if there is a delay between the user's request and getting the prepared data
 
-Server generate spinner code and send it to the client, /
-then server is preparing the data and /
+The server generates a spinner code and sends it to the client, /
+the server then prepares the data and /
 when the data is prepared the server sends the prepared data to the client
+
+## New APIs (concurrent features)
+
+In [Concurrent Mode](https://reactjs.org/docs/concurrent-mode-intro.html), rendering is not blocking. It is interruptible. React can work on several state updates concurrently.
+
+* [startTransition()](https://reactjs.org/docs/concurrent-mode-reference.html#usetransition)
+* [useTransition()](https://reactjs.org/docs/concurrent-mode-reference.html#usetransition)
+* [useDeferredValues()](https://reactjs.org/docs/concurrent-mode-reference.html#usedeferredvalue)
