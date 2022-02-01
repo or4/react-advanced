@@ -31,6 +31,8 @@ In this repo I tried to collect high level react features
 
 ## Here I tried rewrite information from articles or reports
 
+[What's New in React 18]((https://github.com/or4/react-advanced/blob/master/src/react18.md))
+
 [Change detection](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/change-detection.md)
 
 [Fiber In Depth](https://github.com/or4/react-advanced/blob/master/src/fiber-in-depth/readme.md)
