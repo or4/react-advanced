@@ -14,6 +14,8 @@ In this repo I tried collect high level react features
 
 [Under-the-hood of React Hooks](https://itnext.io/under-the-hood-of-react-hooks-805dc68581c3)
 
+### Fiber
+
 [The how and why on React’s usage of linked list in Fiber to walk the component’s tree](https://indepth.dev/posts/1007/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree)
 
 [Inside Fiber: in-depth overview of the new reconciliation algorithm in React](https://indepth.dev/posts/1008/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react)
