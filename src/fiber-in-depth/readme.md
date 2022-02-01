@@ -1,6 +1,6 @@
 # Fiber in depth
 
-One of React’s core principles is consistency. React always updates the DOM in one go — it doesn’t show partial results. The workInProgress tree serves as a “draft” that’s not visible to the user, so that React can process all components first, and then flush their changes to the screen.
+One of React’s core principles is consistency. React always updates the DOM in one go — it doesn’t show partial results. The `workInProgress` tree serves as a “draft” that’s not visible to the user, so that React can process all components first, and then flush their changes to the screen.
 
 React processes updates very quickly and to achieve that level of performance it employs a few interesting techniques. **One of them is building a linear list of fiber nodes with effects for quick iteration.** Iterating the linear list is much faster than a tree, and there’s no need to spend time on nodes without side-effects.
 
@@ -111,7 +111,7 @@ Tree `workInProgress` transforms to `finishedWork`.
 
 Side effects like lifecycle methods and other are encoded in the `effectTag` field.
 
-Effects in Fiber basically define the work. For host components the work consists of adding, updating or removing elements. For class components effects are to update refs and call the componentDidMount and componentDidUpdate lifecycle methods. There are also other effects corresponding to other types of fibers.
+Effects in Fiber basically define the work. For host components the work consists of adding, updating or removing elements. For class components effects are to update refs and call the `componentDidMount` and `componentDidUpdate` lifecycle methods. There are also other effects corresponding to other types of fibers.
 
 ### Effects list
 
@@ -209,9 +209,9 @@ In contrast, the following __commit phase is always synchronous.__ This is becau
 ### The list of lifecycle methods executed during the second `commit phase`
 
 * getSnapshotBeforeUpdate
-* componentDidMount
-* componentDidUpdate
-* componentWillUnmount
+* `
+*` componentDidUpdate
+`*` componentWillUnmount
 
 Because these methods execute in the `synchronous commit phase`, they may contain side effects and touch the DOM.
 
@@ -313,7 +313,7 @@ When React gets to this phase, it has 2 trees and the effects list. The first tr
 * Calls the `componentWillUnmount` lifecycle method on nodes tagged with the `Deletion` effect
 * Performs all the DOM `insertions`, `updates` and `deletions`
 * Sets the `finishedWork` tree as `current`
-* Calls `componentDidMount` lifecycle method on nodes tagged with the `Placement` effect
+* Calls ```` lifecycle `method` on nodes tagged with the `Placement` effect
 * Calls `componentDidUpdate` lifecycle method on nodes tagged with the `Update` effect
 
 ### Commit algorithm
@@ -322,7 +322,7 @@ When React gets to this phase, it has 2 trees and the effects list. The first tr
 
 2. The first pass performs all DOM (host) insertions, updates, deletions and ref unmounts.
 
-3. Then React assigns the `finishedWork` tree to the FiberRoot marking the `workInProgress` tree as the `current` tree. This is done after the first pass of the commit phase, so that the previous tree is still current during `componentWillUnmount`, but before the second pass, so that the `finished` work is `current` during `componentDidMount`/`Update`.
+3. Then React assigns the `finishedWork` tree to the FiberRoot marking the `workInProgress` tree as the `current` tree. This is done after the first pass of the commit phase, so that the previous tree is still current during `componentWillUnmount`, but before the second pass, so that the `finished` work is `current` during ```/``Update``.`
 
 4. In the second pass React calls all other `lifecycle` methods and `ref` callbacks. These methods are executed as a separate pass so that all `placements`, `updates`, and `deletions` in the entire tree have already been invoked.
 

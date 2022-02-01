@@ -114,7 +114,7 @@ Difference between angular and react, angular generate runtime instructions (cod
 #### Angular - Schedule
 
 In angular schedule is automatic it happens after events and other actions / conditions.
-Angular has zone.js. It notify angular when happens any async event. It intercept async events like UI events, network events, timing events and so on. Zone.js notifies angular application.
+Angular has `zone.js`. It notify angular when happens any async event. It intercept async events like UI events, network events, timing events and so on. `zone.js` notifies angular application.
 
 Automatic scheduling, very targeted synchronization process by nodes by Ivy compiler and static nature templates.
 Angular only compares nodes defined compiler.
@@ -134,14 +134,14 @@ In react this phase is manual. React start when setState is called.
 
 #### React - Render (Reconciliation)
 
-React creates fiber node for each node and each elemnt of structure (examples: context, portals..)
+React creates fiber node for each node and each element of structure (examples: context, portals..)
 React skip nodes that is not changed. It marks nodes that need update.
-React look up from parent to child, and if parent not chaged then child is not changed
-But I see that if we change state in child, paremt render is not called.
+React look up from parent to child, and if parent not changed then child is not changed
+If state in child is changed, the parent render's is not called.
 
 Manually mechanism scheduling and not targeted synchronization process
 React compare all nodes each using some heuristics (which are changes and skip if not changes)
-But thanks to the fact that there are no static templates we can very dynamicly work with framework
+But thanks to the fact that there are no static templates we can very dynamically work with framework
 
 this process is async and not modify DOM
 
@@ -153,8 +153,4 @@ Methods of react life cycles is effects.
 
 ## Links
 
-https://indepth.dev/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/
-
-https://indepth.dev/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-to-walk-the-components-tree/
-
-https://indepth.dev/everything-you-need-to-know-about-change-detection-in-angular/
+[Everything you need to know about change detection in Angular](https://indepth.dev/posts/1053/everything-you-need-to-know-about-change-detection-in-angular)
